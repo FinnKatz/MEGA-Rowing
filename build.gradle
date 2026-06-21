@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24'
+    }
+}
+
+// NOTE: Module/app-level dependency repositories are declared centrally in
+// settings.gradle's dependencyResolutionManagement block (with
+// RepositoriesMode.FAIL_ON_PROJECT_REPOS set), which is the Gradle 7+
+// recommended approach. Declaring an `allprojects { repositories {...} } `
+// block here as well is NOT allowed under that mode and causes a hard
+// build failure: "Build was configured to prefer settings repositories
+// over project repositories but repository 'X' was added by build file
+// 'build.gradle'". The buildscript{} repositories above are a separate,
+// unrelated mechanism (used only for resolving Gradle plugins themselves)
+// and are unaffected by that restriction.
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Empty filter values match ANY USB device. We don't have the S4's
+         exact vendor/product ID, and usb-serial-for-android's CDC/ACM
+         detection works by USB interface type anyway, so a broad match
+         here is correct and simplest. -->
+    <usb-device />
+</resources>
