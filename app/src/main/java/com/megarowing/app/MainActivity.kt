@@ -235,8 +235,8 @@ class MainActivity : AppCompatActivity(), SerialInputOutputManager.Listener {
         }
 
         serialPort = port
-        ioManager = SerialInputOutputManager(port, this).also { executor.execute(it) }
-
+        ioManager = SerialInputOutputManager(port, this).also { it.start() }
+        
         // S4 handshake — same as the protocol used everywhere else in this app.
         try {
             port.write("USB\r\n".toByteArray(Charsets.US_ASCII), 1000)
